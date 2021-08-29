@@ -1,4 +1,4 @@
-import { Box, Text, Image } from '@chakra-ui/react'
+import { Box, Text, Image, Stack, Skeleton } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { DrinkableContext } from '../contexts/DrinkableContext'
 import { Link } from 'react-router-dom'
@@ -15,6 +15,14 @@ export default function RandomDrinks() {
             >
                 Por quê não tentar algo novo?
             </Text>
+
+            {!randomDrink?.drinks &&
+                <Stack mt="50px">
+                    <Skeleton height="20px" />
+                    <Skeleton height="20px" />
+                    <Skeleton height="20px" />
+                </Stack>
+            }
 
             {randomDrink?.drinks.map(drink => (
                 <Link to={`/${drink.idDrink}`} key={drink.idDrink}>

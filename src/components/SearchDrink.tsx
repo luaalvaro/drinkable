@@ -22,7 +22,7 @@ export default function SearchDrink() {
                     />
                     <Input
                         background="#fff"
-                        placeholder="Marguerita..."
+                        placeholder="Mimosa..."
                         defaultValue={search}
                         onChange={(event) => setSearch(event.target.value)}
                         onKeyPress={(event) => handleSubmit(event)}

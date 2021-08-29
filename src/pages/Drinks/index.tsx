@@ -1,4 +1,4 @@
-import { Text, Image, Box, Flex, } from '@chakra-ui/react'
+import { Text, Image, Box, Flex, Stack, Skeleton } from '@chakra-ui/react'
 import { Container, Header, Content } from '../../components'
 import { Link, useParams } from 'react-router-dom'
 import { useEffect } from 'react';
@@ -43,13 +43,22 @@ function Drinks() {
         <Container>
             <Header />
             <Content>
+
+                {isLoading &&
+                    <Stack mt="50px">
+                        <Skeleton height="20px" />
+                        <Skeleton height="20px" />
+                        <Skeleton height="20px" />
+                    </Stack>
+                }
+
                 <Flex
                     justify="center"
                     textAlign="center"
                     flexWrap="wrap"
                     pt="25px"
                 >
-                    {drinks && drinks?.drinks.map(drink => {
+                    {drinks && !isLoading && drinks?.drinks?.map(drink => {
 
                         return (
                             <Link
@@ -87,9 +96,6 @@ function Drinks() {
                         </Text>
                     }
 
-                    {isLoading &&
-                        <Text>Carregando...</Text>
-                    }
                 </Flex>
             </Content>
         </Container >
