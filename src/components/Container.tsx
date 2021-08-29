@@ -1,10 +1,7 @@
 import { Box } from '@chakra-ui/react'
+import React from 'react'
 
-type Iprops = {
-    children: React.ReactNode
-}
-
-export default function Container({ children }: Iprops) {
+const Container: React.FC = ({ children }) => {
     return (
         <Box
             height="100%"
@@ -15,3 +12,5 @@ export default function Container({ children }: Iprops) {
         </Box>
     )
 }
+
+export default Container

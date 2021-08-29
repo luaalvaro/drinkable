@@ -1,11 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
 
-type Iprops = {
-    children: React.ReactNode
-}
-
-export default function Content({ children }: Iprops) {
+const Content: React.FC = ({ children }) => {
     return (
         <Box
             maxW="1024px"
@@ -17,3 +13,5 @@ export default function Content({ children }: Iprops) {
         </Box>
     )
 }
+
+export default Content
