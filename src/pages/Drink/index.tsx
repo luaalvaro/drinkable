@@ -43,7 +43,7 @@ function Drink() {
                     (
                         <Box key={drink.idDrink} mx="auto" width="max-content" textAlign="center" pt="10px">
 
-                            <Text fontSize="34px" fontWeight="500">
+                            <Text fontSize={["25px", "30px", "34px"]} fontWeight="500">
                                 {drink.strDrink}
                             </Text>
 
