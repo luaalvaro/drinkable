@@ -36,7 +36,7 @@ function Drinks() {
                 setIsLoading(false)
             })()
         }
-
+        // eslint-disable-next-line
     }, [id])
 
     return (

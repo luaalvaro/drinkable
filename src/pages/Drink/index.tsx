@@ -33,8 +33,8 @@ function Drink() {
             setDrink(data)
         })()
 
+        // eslint-disable-next-line
     }, [id])
-
     return (
         <Container>
             <Header />
