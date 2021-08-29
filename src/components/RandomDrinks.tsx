@@ -1,7 +1,7 @@
 import { Box, Text, Image } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { DrinkableContext } from '../contexts/DrinkableContext'
-
+import { Link } from 'react-router-dom'
 
 export default function RandomDrinks() {
 
@@ -17,10 +17,16 @@ export default function RandomDrinks() {
             </Text>
 
             {randomDrink?.drinks.map(drink => (
-                <div key={drink.idDrink}>
-                    <Text>{drink.strDrink}</Text>
-                    <Image src={`${drink.strDrinkThumb}/preview`} alt="Drink Thumb" mt="10px" />
-                </div>
+                <Link to={`/${drink.idDrink}`} key={drink.idDrink}>
+                    <hr />
+                    <Text
+                        marginTop="15px"
+                        textAlign="center"
+                    >
+                        {drink.strDrink}
+                    </Text>
+                    <Image mx="auto" src={`${drink.strDrinkThumb}/preview`} alt="Drink Thumb" mt="10px" />
+                </Link>
             ))}
 
         </Box>

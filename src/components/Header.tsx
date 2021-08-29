@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import Logo from '../assets/logo.svg'
 import { DrinkableContext } from '../contexts/DrinkableContext'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
 
@@ -16,7 +17,9 @@ export default function Header() {
             justify="space-between"
             align="center"
         >
-            <Image src={Logo} alt="Logo" width="180px" />
+            <Link to="/">
+                <Image src={Logo} alt="Logo" width="180px" />
+            </Link>
 
             {menuIsOpen
                 ? <FaTimes

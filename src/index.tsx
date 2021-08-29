@@ -1,14 +1,14 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import { DrinkableContextProvider } from './contexts/DrinkableContext';
+import Routes from './routes';
 
 ReactDOM.render(
   <React.StrictMode>
     <DrinkableContextProvider>
       <ChakraProvider>
-        <App />
+        <Routes />
       </ChakraProvider>
     </DrinkableContextProvider>
   </React.StrictMode>,
