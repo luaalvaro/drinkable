@@ -1,8 +1,8 @@
-import { Text, Image, Box, Flex } from '@chakra-ui/react'
+import { Text, Image, Box, Flex, } from '@chakra-ui/react'
 import { Container, Header, Content } from '../../components'
 import { Link, useParams } from 'react-router-dom'
-import { useContext, useEffect } from 'react';
-import { DrinkableContext, IDrinks } from '../../contexts/DrinkableContext';
+import { useEffect } from 'react';
+import { IDrinks } from '../../contexts/DrinkableContext';
 import api from '../../services/api';
 import { useState } from 'react';
 
@@ -14,12 +14,15 @@ function Drinks() {
 
     const { id } = useParams<IParams>()
     const [drinks, setDrinks] = useState<IDrinks>()
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
 
         (async () => {
+            setIsLoading(true)
             const { data } = await api.get<IDrinks>(`filter.php?c=${id}`)
             setDrinks(data)
+            setIsLoading(false)
         })()
 
     }, [id])
@@ -32,8 +35,9 @@ function Drinks() {
                     justify="center"
                     textAlign="center"
                     flexWrap="wrap"
+                    pt="25px"
                 >
-                    {drinks?.drinks.map(drink => {
+                    {drinks && drinks?.drinks.map(drink => {
 
                         return (
                             <Link
@@ -59,9 +63,24 @@ function Drinks() {
                             </Link>
                         )
                     })}
+
+                    {!drinks?.drinks && !isLoading &&
+                        <Text
+                            textAlign="center"
+                            mt="150px"
+                            fontSize="25px"
+                            fontWeight="500"
+                        >
+                            Opppss... Não encontramos nenhum Drink nesta categoria!
+                        </Text>
+                    }
+
+                    {isLoading &&
+                        <Text>Carregando...</Text>
+                    }
                 </Flex>
             </Content>
-        </Container>
+        </Container >
     );
 }
 

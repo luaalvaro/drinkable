@@ -34,11 +34,11 @@ export const DrinkableContextProvider: React.FC = ({ children }) => {
 
     useEffect(() => {
         (async () => {
-            const categories = await fetchCategories()
-            setCategories(categories)
-
             const randomDrink = await fetchRandomDrink()
             setRandomDrink(randomDrink)
+
+            const categories = await fetchCategories()
+            setCategories(categories)
         })()
     }, [])
 

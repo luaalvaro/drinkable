@@ -8,7 +8,7 @@ export default function RandomDrinks() {
     const { randomDrink } = useContext(DrinkableContext)
 
     return (
-        <Box>
+        <Box pb="25px">
             <Text
                 fontWeight="500"
                 marginBottom="15px"

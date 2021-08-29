@@ -8,8 +8,10 @@ type Iprops = {
 export default function Content({ children }: Iprops) {
     return (
         <Box
+            maxW="1024px"
+            mx="auto"
             px="20px"
-            height="calc(100vh - 60px)"
+            minHeight="calc(100vh - 60px)"
         >
             {children}
         </Box>
