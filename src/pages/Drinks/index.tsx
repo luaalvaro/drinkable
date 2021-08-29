@@ -8,22 +8,34 @@ import { useState } from 'react';
 
 interface IParams {
     id: string
+    category: string
 }
 
 function Drinks() {
 
-    const { id } = useParams<IParams>()
+    const { category, id } = useParams<IParams>()
     const [drinks, setDrinks] = useState<IDrinks>()
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
 
-        (async () => {
-            setIsLoading(true)
-            const { data } = await api.get<IDrinks>(`filter.php?c=${id}`)
-            setDrinks(data)
-            setIsLoading(false)
-        })()
+        if (category === 'category') {
+            (async () => {
+                setIsLoading(true)
+                const { data } = await api.get<IDrinks>(`filter.php?c=${id}`)
+                setDrinks(data)
+                setIsLoading(false)
+            })()
+        }
+
+        if (category === 'search') {
+            (async () => {
+                setIsLoading(true)
+                const { data } = await api.get<IDrinks>(`search.php?s=${id}`)
+                setDrinks(data)
+                setIsLoading(false)
+            })()
+        }
 
     }, [id])
 

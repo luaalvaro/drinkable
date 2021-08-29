@@ -56,7 +56,7 @@ export default function Header() {
                                 fontSize="18px"
                                 onClick={toggleMenu}
                             >
-                                <Link to={`/categoria/${linkCategory}`}>{category}</Link>
+                                <Link to={`/category/${linkCategory}`}>{category}</Link>
                             </Text>
                         )
                     })}
