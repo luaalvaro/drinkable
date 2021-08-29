@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Drink from './pages/Drink'
+import Drinks from './pages/Drinks'
 
 const Routes: React.FC = () => {
     return (
@@ -9,8 +10,11 @@ const Routes: React.FC = () => {
                 <Route exact path="/">
                     <Home />
                 </Route>
-                <Route path="/:id">
+                <Route exact path="/:id">
                     <Drink />
+                </Route>
+                <Route exact path="/categoria/:id">
+                    <Drinks />
                 </Route>
             </Switch>
         </Router>

@@ -9,7 +9,7 @@ type DrinkableContextType = {
     randomDrink: IDrinks | undefined
 }
 
-interface IDrinks {
+export interface IDrinks {
     drinks: {
         idDrink: string
         strDrink: string

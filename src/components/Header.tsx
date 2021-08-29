@@ -26,10 +26,12 @@ export default function Header() {
                     ? <FaTimes
                         fontSize="20px"
                         onClick={toggleMenu}
+                        cursor="pointer"
                     />
                     : <FaBars
                         fontSize="20px"
                         onClick={toggleMenu}
+                        cursor="pointer"
                     />
                 }
             </Flex>
@@ -52,8 +54,9 @@ export default function Header() {
                                 key={index}
                                 textAlign="center"
                                 fontSize="18px"
+                                onClick={toggleMenu}
                             >
-                                <Link to={`c=${linkCategory}`}>{category}</Link>
+                                <Link to={`/categoria/${linkCategory}`}>{category}</Link>
                             </Text>
                         )
                     })}

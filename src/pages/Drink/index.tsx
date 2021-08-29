@@ -7,7 +7,7 @@ import { DrinkableContext } from '../../contexts/DrinkableContext';
 interface IParams {
     id: string
 }
-function App() {
+function Drink() {
 
     const { id } = useParams<IParams>()
     const { randomDrink } = useContext(DrinkableContext)
@@ -36,4 +36,4 @@ function App() {
     );
 }
 
-export default App;
+export default Drink;
