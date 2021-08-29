@@ -1,9 +1,13 @@
 import { Flex, Image } from '@chakra-ui/react'
-import { FaBars } from 'react-icons/fa'
+import { useContext } from 'react'
+import { FaBars, FaTimes } from 'react-icons/fa'
 import Logo from '../assets/logo.svg'
-
+import { DrinkableContext } from '../contexts/DrinkableContext'
 
 export default function Header() {
+
+    const { categories, menuIsOpen, toggleMenu } = useContext(DrinkableContext)
+
     return (
         <Flex
             height="60px"
@@ -13,7 +17,18 @@ export default function Header() {
             align="center"
         >
             <Image src={Logo} alt="Logo" width="180px" />
-            <FaBars fontSize="20px" />
+
+            {menuIsOpen
+                ? <FaTimes
+                    fontSize="20px"
+                    onClick={toggleMenu}
+                />
+                : <FaBars
+                    fontSize="20px"
+                    onClick={toggleMenu}
+                />
+            }
+
         </Flex>
     )
 }
