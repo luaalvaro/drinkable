@@ -1,19 +1,9 @@
+import { IDrinks } from "../contexts/DrinkableContext"
 import api from "./api"
 
 interface IResponse {
     drinks: {
         strCategory: string
-    }[]
-}
-
-interface IResponseDrinks {
-    drinks: {
-        idDrink: string
-        strDrink: string
-        strCategory: string
-        strDrinkThumb: string
-        strGlass: string
-        strInstructions: string
     }[]
 }
 
@@ -28,7 +18,7 @@ export const fetchCategories = async () => {
 }
 
 export const fetchRandomDrink = async () => {
-    const { data } = await api.get<IResponseDrinks>('random.php')
+    const { data } = await api.get<IDrinks>('random.php')
 
     return data
 }

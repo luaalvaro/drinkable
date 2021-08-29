@@ -43,17 +43,30 @@ function Drink() {
                     (
                         <Box key={drink.idDrink} mx="auto" width="max-content" textAlign="center" pt="10px">
 
-                            <Text fontSize={["25px", "30px", "34px"]} fontWeight="500">
+                            <Text fontSize={["25px", "30px", "34px"]} fontWeight="500" maxWidth={["350px", "450px", "600px"]}>
                                 {drink.strDrink}
                             </Text>
 
                             <Image src={`${drink.strDrinkThumb}/preview`} alt="Drink Thumb" mt="10px" mx="auto" />
 
-                            <Text maxWidth="320px" mt="10px" lineHeight="20px" mx="auto" fontStyle="italic">
+                            <Text maxWidth={["320px", "450px", "600px"]} mt="10px" lineHeight="20px" mx="auto" fontStyle="italic">
                                 {drink.strInstructions}
                             </Text>
 
                             <Text mt="10px"><b>Glass: </b> {drink.strGlass}</Text>
+
+                            <Text
+                                mt="10px"
+                                maxWidth={["320px", "450px", "600px"]}
+                            >
+                                <b>Ingredients: </b>
+                                {drink.strIngredient1}&nbsp;
+                                {drink.strIngredient2}&nbsp;
+                                {drink.strIngredient3}&nbsp;
+                                {drink.strIngredient4}&nbsp;
+                                {drink.strIngredient5}&nbsp;
+                                {drink.strIngredient6}
+                            </Text>
                         </Box>
                     )
                 ))}
